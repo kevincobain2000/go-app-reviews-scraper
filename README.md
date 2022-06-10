@@ -94,3 +94,4 @@ go-app-reviews-scraper -h
 
 - v1.1 - Work in progress. Send notification via Email.
 - v1.2 - Work in progress. Send notification via Slack.
+- v2.0 - Google Play store support.
