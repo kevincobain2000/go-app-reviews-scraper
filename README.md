@@ -43,7 +43,7 @@
 </h3>
 
 <p align="center">
-  <img src="screenshot1.png" alt="teams">
+  <img src="screenshot3.png" alt="teams">
 </p>
 
 <h3 align="center">
@@ -51,7 +51,7 @@
 </h3>
 
 <p align="center">
-  <img src="screenshot2.png" alt="teams">
+  <img src="screenshot4.png" alt="teams">
 </p>
 
 
