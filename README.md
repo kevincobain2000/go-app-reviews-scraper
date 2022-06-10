@@ -84,16 +84,14 @@ go-app-reviews-scraper -h
     	Description: Run DB migration
   -reviews-url string
     	Description: Link to all reviews page. Example: https://apps.apple.com/us/app/candy-crush-saga/id553834731?see-all=reviews
-  -store string
-    	Description: ios|android. Example: ios (default "ios")
 ```
 
 ### CHANGE LOG
 
 - v1.0 - Initial release includes iOS App store reviews scraper and notification to MS Teams.
+- v1.1 - Support for Google Play Store.
 
 ### ROADMAP
 
-- v1.1 - Work in progress. Send notification via Email.
-- v1.2 - Work in progress. Send notification via Slack.
-- v2.0 - Google Play store support.
+- v1.2 - Work in progress. Send notification via Email.
+- v1.3 - Work in progress. Send notification via Slack.

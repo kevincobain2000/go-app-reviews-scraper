@@ -12,7 +12,6 @@ import (
 var (
 	appName    = flag.String("app-name", "", "Description: Give a unique app name. Example: candy-crush")
 	reviewsURL = flag.String("reviews-url", "", "Description: Link to all reviews page. Example: https://apps.apple.com/us/app/candy-crush-saga/id553834731?see-all=reviews")
-	store      = flag.String("store", "ios", "Description: ios|android. Example: ios")
 	migrate    = flag.Bool("migrate", false, "Description: Run DB migration")
 )
 
@@ -44,30 +43,42 @@ func main() {
 	}
 
 	// Required args check
-	if *appName == "" || *reviewsURL == "" || *store == "" {
+	if *appName == "" || *reviewsURL == "" {
 		log.Fatal("[fatal] Missing required flags. See -h for help.")
-	}
-	if *store != "ios" && *store != "android" {
-		log.Fatal("[fatal] Store must be ios or android")
 	}
 
 	// prepare services and repositories
+	uu := services.NewUtils()
 	ss := services.NewSurfAppStore()
 	nn := services.NewNotify()
 	repo := services.NewReviewsRepository()
+	// end prepare services and repositories
+
+	// parse reviews url and get store
+	store, err := uu.GetStoreFromURL(*reviewsURL)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	// create reviews object where reviews are going to be stored
+	reviews := services.Reviews{
+		AppName: *appName,
+		Store:   store,
+	}
 
 	fmt.Println("[info] Started browser to scrape")
-	reviews, err := ss.Surf(*reviewsURL)
+	if store == services.StoreIOS {
+		reviews, err = ss.SurfAppleStore(*reviewsURL)
+	}
+	if store == services.StoreAndroid {
+		reviews, err = ss.SurfAppleStore(*reviewsURL)
+	}
 	if err != nil {
 		log.Fatal(err)
 	}
 	if reviews.Total == 0 {
 		log.Fatal("[fatal] No reviews found, or something went wrong during fetching")
 	}
-
-	// set reviews object
-	reviews.AppName = *appName
-	reviews.Store = *store
 
 	// Start procedure to update database
 

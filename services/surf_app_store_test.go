@@ -23,7 +23,7 @@ func TestGetBrowser(t *testing.T) {
 func TestSurf(t *testing.T) {
 	s := NewSurfAppStore()
 	// will do actual test
-	reviews, err := s.Surf(candyCrushURL)
+	reviews, err := s.SurfAppleStore(candyCrushURL)
 	assert.Nil(t, err)
 	assert.NotNil(t, reviews)
 	assert.LessOrEqual(t, 10000, reviews.Total)         // at least more than this many reviews are there

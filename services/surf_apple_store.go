@@ -14,6 +14,13 @@ import (
 	"github.com/headzoo/surf/jar"
 )
 
+type SurfAppStore struct {
+}
+
+func NewSurfAppStore() *SurfAppStore {
+	return &SurfAppStore{}
+}
+
 // getBrowser returns a new browser instance
 // with a custom User-Agent
 // and a cookie jar
@@ -103,16 +110,9 @@ const (
 	ratingReviewBodyClass = ".we-customer-review__body"
 )
 
-type SurfAppStore struct {
-}
-
-func NewSurfAppStore() *SurfAppStore {
-	return &SurfAppStore{}
-}
-
-// Surf reviews for a given app
+// SurfAppleStore reviews for a given app
 // and returns a Reviews struct
-func (s *SurfAppStore) Surf(url string) (Reviews, error) {
+func (s *SurfAppStore) SurfAppleStore(url string) (Reviews, error) {
 	reviews := Reviews{}
 	bow := s.getBrowser()
 
