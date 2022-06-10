@@ -9,13 +9,15 @@
 
 </p>
 
+**Blazing Fast:**
+
 **Command line:** Arch free binary to run as scheduler on any platform.
 
 **Proxy support:** Works behind a proxy.
 
 **Notifications:** Supports multiple notification channels Microsoft Teams or console output.
 
-**Depedencies:** Works with sqlite on disk or in memory.
+**Dependencies:** Works with sqlite on disk or in memory.
 
 ### Notification sample on new review
 
