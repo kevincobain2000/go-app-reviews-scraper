@@ -1,4 +1,4 @@
-[![codecov](https://codecov.io/gh/kevincobain2000/goapp-reviews-scraper/branch/master/graph/badge.svg)](https://codecov.io/gh/kevincobain2000/go-app-reviews-scraper)
+[![codecov](https://codecov.io/gh/kevincobain2000/go-app-reviews-scraper/branch/master/graph/badge.svg)](https://codecov.io/gh/kevincobain2000/go-app-reviews-scraper)
 
 
 <h1 align="center">Apple App Store and Google Play Store Reviews API & Notifier.</h1>
