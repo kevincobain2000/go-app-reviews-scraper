@@ -1,7 +1,8 @@
 [![codecov](https://codecov.io/gh/kevincobain2000/go-app-reviews-scraper/branch/master/graph/badge.svg)](https://codecov.io/gh/kevincobain2000/go-app-reviews-scraper)
 
 
-<h1 align="center">Apple App Store and Google Play Store Reviews API & Notifier.</h1>
+<h1 align="center">Apple App Store<br>Google Play Store</h1>
+<h3 align="center">Scrape Reviews and Ratings.<br>Notify when new review arrives.</h3>
 
 <p align="center">
   <a href="https://github.com/kevincobain2000/go-app-reviews-scraper">
@@ -23,11 +24,13 @@
 
 **Command line:** Arch free binary to run as scheduler on any platform.
 
+**Headless:** Uses headless browser to run without selenium or chromium drivers.
+
 **Proxy support:** Works behind a proxy.
 
 **Notifications:** Supports multiple notification channels Microsoft Teams or console output.
 
-**Dependencies:** Works with sqlite on disk or in memory.
+**Dependencies:** None. Works with sqlite on disk or in memory.
 
 ### Notification sample on new review
 
