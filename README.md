@@ -1,15 +1,13 @@
 [![codecov](https://codecov.io/gh/kevincobain2000/go-app-reviews-scraper/branch/master/graph/badge.svg)](https://codecov.io/gh/kevincobain2000/go-app-reviews-scraper)
 
 
-<h1 align="center">Apple App Store<br>Google Play Store</h1>
-<h3 align="center">Scrape Reviews and Ratings.<br>Notify when new review arrives.</h3>
-
 <p align="center">
   <a href="https://github.com/kevincobain2000/go-app-reviews-scraper">
     <img alt="go-app-reviews-scraper" src="logo.png" width="360">
   </a>
 </p>
 
+<h3 align="center">Scrape Reviews and Ratings.<br>Notify when new review arrives.</h3>
 
 <p align="center">
   Monitor your app store reviews and get notified when new reviews are published.
