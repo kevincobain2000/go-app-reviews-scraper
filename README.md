@@ -83,13 +83,13 @@ ENV_PATH=./.env go-app-reviews-scraper -app-name="candy-crush" -reviews-url="htt
 ```sh
 go-app-reviews-scraper -h
   -app-name string
-    	Desc: Give a unique app name. Example: candy-crush
+    	Description: Give a unique app name. Example: candy-crush
   -migrate
-    	Desc: Run DB migration
+    	Description: Run DB migration
   -reviews-url string
 
-    	Desc: Apple's link to reviews page. Example: https://apps.apple.com/us/app/candy-crush-saga/id553834731?see-all=reviews
-    	Desc: Google's link reviews page. Example: https://play.google.com/store/apps/details?id=com.king.candycrushsaga&hl=en&gl=US
+    	Description: Apple's link to reviews page. Example: https://apps.apple.com/us/app/candy-crush-saga/id553834731?see-all=reviews
+    	Description: Google's link reviews page. Example: https://play.google.com/store/apps/details?id=com.king.candycrushsaga&hl=en&gl=US
 ```
 
 ### CHANGE LOG
