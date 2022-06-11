@@ -14,9 +14,11 @@ import (
 	"github.com/headzoo/surf/jar"
 )
 
+// SurfAppStore for dui
 type SurfAppStore struct {
 }
 
+// NewSurfAppStore returns a new SurfAppStore instance
 func NewSurfAppStore() *SurfAppStore {
 	return &SurfAppStore{}
 }

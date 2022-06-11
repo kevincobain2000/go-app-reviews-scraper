@@ -4,16 +4,21 @@ import (
 	reviewsService "github.com/n0madic/google-play-scraper/pkg/reviews"
 )
 
+// SurfGoogleStore is a SurfGoogleStore
 type SurfGoogleStore struct {
+	// Number is the number of reviews to scrape
 	Number int
 }
 
+// NewSurfGoogleStore creates a new SurfGoogleStore
 func NewSurfGoogleStore(number int) *SurfGoogleStore {
 	return &SurfGoogleStore{
 		Number: number,
 	}
 }
 
+// Surf Google Store
+// Uses a library to scrape reviews from Google Play
 func (s *SurfGoogleStore) Surf(urlStr string) (Reviews, error) {
 	reviews := Reviews{}
 	uu := NewUtils()

@@ -1,3 +1,6 @@
+[![codecov](https://codecov.io/gh/kevincobain2000/goapp-reviews-scraper/branch/master/graph/badge.svg)](https://codecov.io/gh/kevincobain2000/go-app-reviews-scraper)
+
+
 <h1 align="center">Apple App Store and Google Play Store Reviews API & Notifier.</h1>
 
 <p align="center">
@@ -92,7 +95,7 @@ go-app-reviews-scraper -h
 ### CHANGE LOG
 
 - v1.0 - Initial release includes iOS App store reviews scraper and notification to MS Teams.
-- v1.1 - Support for Google Play Store.
+- v1.0 - Support for Google Play Store.
 
 ### ROADMAP
 
