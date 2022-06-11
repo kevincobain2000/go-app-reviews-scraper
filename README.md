@@ -4,9 +4,16 @@
 <h1 align="center">Apple App Store and Google Play Store Reviews API & Notifier.</h1>
 
 <p align="center">
+  <a href="https://github.com/kevincobain2000/go-app-reviews-scraper">
+    <img alt="go-app-reviews-scraper" src="logo.png" width="360">
+  </a>
+</p>
+
+
+<p align="center">
   Monitor your app store reviews and get notified when new reviews are published.
   <br>
-  Apple app store reviews command line API for iOS Apps.
+  Apple app store reviews command line API for iOS and Google Play apps.
   <br>
   Written in Go :heart:
 
