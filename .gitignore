@@ -25,3 +25,5 @@ build/
 debug/
 
 *.log
+
+coverage.txt
