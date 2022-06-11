@@ -11,8 +11,11 @@ import (
 
 var (
 	appName    = flag.String("app-name", "", "Description: Give a unique app name. Example: candy-crush")
-	reviewsURL = flag.String("reviews-url", "", "Description: Link to all reviews page. Example: https://apps.apple.com/us/app/candy-crush-saga/id553834731?see-all=reviews")
-	migrate    = flag.Bool("migrate", false, "Description: Run DB migration")
+	reviewsURL = flag.String("reviews-url", "", `
+Description: Apple's link to reviews page. Example: https://apps.apple.com/us/app/candy-crush-saga/id553834731?see-all=reviews
+Description: Google's link reviews page. Example: https://play.google.com/store/apps/details?id=com.king.candycrushsaga&hl=en&gl=US
+	`)
+	migrate = flag.Bool("migrate", false, "Description: Run DB migration")
 )
 
 // main execution starts here for the command line interface
@@ -49,9 +52,9 @@ func main() {
 
 	// prepare services and repositories
 	uu := services.NewUtils()
-	ss := services.NewSurfAppStore()
-	nn := services.NewNotify()
-	repo := services.NewReviewsRepository()
+	sa := services.NewSurfAppStore()
+	sg := services.NewSurfGoogleStore(100000) // surf everything
+
 	// end prepare services and repositories
 
 	// parse reviews url and get store
@@ -61,25 +64,38 @@ func main() {
 	}
 
 	// create reviews object where reviews are going to be stored
-	reviews := services.Reviews{
-		AppName: *appName,
-		Store:   store,
-	}
+	var reviews services.Reviews
 
 	fmt.Println("[info] Started browser to scrape")
 	if store == services.StoreIOS {
-		reviews, err = ss.SurfAppleStore(*reviewsURL)
+		reviews, err = sa.Surf(*reviewsURL)
 	}
 	if store == services.StoreAndroid {
-		reviews, err = ss.SurfAppleStore(*reviewsURL)
+		reviews, err = sg.Surf(*reviewsURL)
 	}
 	if err != nil {
 		log.Fatal(err)
 	}
+	reviews.AppName = *appName
+	reviews.Store = store
 	if reviews.Total == 0 {
 		log.Fatal("[fatal] No reviews found, or something went wrong during fetching")
 	}
 
+	// handle database
+	newReviews, lastReviewCount, currentReviewCount, err := handleDB(reviews)
+	if err != nil {
+		log.Fatal(err)
+	}
+	// handle notifications
+	if err := handleNotification(newReviews, lastReviewCount, currentReviewCount); err != nil {
+		log.Fatal(err)
+	}
+	log.Println("[info] Finished!")
+}
+
+func handleDB(reviews services.Reviews) ([]services.ReviewModel, services.ReviewCountsModel, services.ReviewCountsModel, error) {
+	repo := services.NewReviewsRepository()
 	// Start procedure to update database
 
 	// 1) from the scraped reviews, check if the reviews are in DB
@@ -87,21 +103,37 @@ func main() {
 	//    return is the new reviews that are inserted
 	newReviews, err := repo.FindOrNewReviews(reviews)
 	if err != nil {
-		log.Fatal(err)
+		log.Println(err)
+		return nil, services.ReviewCountsModel{}, services.ReviewCountsModel{}, err
 	}
 
 	// 2) Get the last review count summary from DB
 	lastReviewCount, err := repo.FindLastReviewCount(reviews)
 	if err != nil {
-		log.Fatal(err)
+		log.Println(err)
+		return nil, services.ReviewCountsModel{}, services.ReviewCountsModel{}, err
 	}
 
 	// 3) Only insert the newly scaped reviews summary if there is no difference
 	//    when there is no diff then the last review summary is returned
 	currentReviewCount, err := repo.FindOrNewReviewCount(reviews)
 	if err != nil {
-		log.Fatal(err)
+		log.Println(err)
+		return nil, services.ReviewCountsModel{}, services.ReviewCountsModel{}, err
 	}
+	if currentReviewCount.ID != 0 && currentReviewCount.ID != lastReviewCount.ID {
+		// we have new rating summary since last scraped
+		currentReviewCount, err = repo.InsertReviewCount(reviews)
+		if err != nil {
+			log.Println(err)
+			return nil, services.ReviewCountsModel{}, services.ReviewCountsModel{}, err
+		}
+	}
+	return newReviews, lastReviewCount, currentReviewCount, err
+}
+
+func handleNotification(newReviews []services.ReviewModel, lastReviewCount services.ReviewCountsModel, currentReviewCount services.ReviewCountsModel) error {
+	nn := services.NewNotify()
 
 	// 4) Check if a new review count summary is created or just using previous one
 	//   Use it for the notification purpose
@@ -109,14 +141,16 @@ func main() {
 		// we have new rating summary since last scraped
 		err := nn.NotifyReviewCount(currentReviewCount, lastReviewCount)
 		if err != nil {
-			log.Fatal(err)
+			log.Println(err)
+			return err
 		}
 	}
 
 	// 5) Notify on new reviews if any
-	err = nn.NotifyNewReviews(newReviews)
+	err := nn.NotifyNewReviews(newReviews)
 	if err != nil {
-		log.Fatal(err)
+		log.Println(err)
+		return err
 	}
-	log.Println("[info] Finished!")
+	return err
 }

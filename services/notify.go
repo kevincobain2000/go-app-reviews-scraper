@@ -66,6 +66,7 @@ func (n *Notify) NotifyNewReviews(reviews []ReviewModel) error {
 // also stdout the message to console in markdown of the message (html)
 // when the env for MS Teams hook or EMAIL addresses are not sent the notifications are not sent
 func (n *Notify) NotifyReviewCount(currentReviewCount, lastReviewCount ReviewCountsModel) error {
+	uu := NewUtils()
 	title := "You have a new rating!"
 	subtitle := "Store (" + currentReviewCount.Store + ")"
 	subject := "App (" + currentReviewCount.AppName + ")"
@@ -75,6 +76,7 @@ func (n *Notify) NotifyReviewCount(currentReviewCount, lastReviewCount ReviewCou
 
 	message += "<b>Now </b>" + currentReviewCount.CreatedAt.Format("02-Jan-2006") + "<br>"
 	message += fmt.Sprintf("Total reviews: %d", currentReviewCount.Total) + "<br>"
+	message += fmt.Sprintf("Average rating: %.2f", uu.AverageRating(currentReviewCount)) + "<br>"
 	message += fmt.Sprintf("★★★★★: %d", currentReviewCount.Rating5Percentage) + "%" + "<br>"
 	message += fmt.Sprintf("★★★★☆: %d", currentReviewCount.Rating4Percentage) + "%" + "<br>"
 	message += fmt.Sprintf("★★★☆☆: %d", currentReviewCount.Rating3Percentage) + "%" + "<br>"
@@ -83,6 +85,7 @@ func (n *Notify) NotifyReviewCount(currentReviewCount, lastReviewCount ReviewCou
 
 	if lastReviewCount.Total > 0 {
 		message += "<b>Before </b>" + lastReviewCount.CreatedAt.Format("02-Jan-2006") + "<br>"
+		message += fmt.Sprintf("Average rating: %.2f", uu.AverageRating(lastReviewCount)) + "<br>"
 		message += fmt.Sprintf("Total reviews: %d", lastReviewCount.Total) + "<br>"
 		message += fmt.Sprintf("★★★★★: %d", lastReviewCount.Rating5Percentage) + "%" + "<br>"
 		message += fmt.Sprintf("★★★★☆: %d", lastReviewCount.Rating4Percentage) + "%" + "<br>"

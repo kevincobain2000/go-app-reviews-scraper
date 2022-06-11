@@ -113,7 +113,7 @@ func (r *ReviewsRepository) FindOrNewReviewCount(reviews Reviews) (ReviewCountsM
 	).Last(&reviewCount)
 
 	if errors.Is(result.Error, gorm.ErrRecordNotFound) {
-		return r.insertReviewCount(reviews)
+		return r.InsertReviewCount(reviews)
 	}
 	return reviewCount, nil
 }
@@ -138,10 +138,10 @@ func (r *ReviewsRepository) insertReview(appName, store, username, title, body s
 	return review, result.Error
 }
 
-// insertReviewCount inserts a new review count
+// InsertReviewCount inserts a new review count
 // that's it
 // DELETED_AT is NULL by default
-func (r *ReviewsRepository) insertReviewCount(reviews Reviews) (ReviewCountsModel, error) {
+func (r *ReviewsRepository) InsertReviewCount(reviews Reviews) (ReviewCountsModel, error) {
 	now := time.Now()
 	reviewCount := ReviewCountsModel{
 		AppName:           reviews.AppName,

@@ -1,4 +1,4 @@
-<h1 align="center">Apple App Store Reviews API & Notifier.</h1>
+<h1 align="center">Apple App Store and Google Play Store Reviews API & Notifier.</h1>
 
 <p align="center">
   Monitor your app store reviews and get notified when new reviews are published.
@@ -9,7 +9,7 @@
 
 </p>
 
-**Blazing Fast:**
+**Supports:** Apple App store and Google Play Store
 
 **Command line:** Arch free binary to run as scheduler on any platform.
 
@@ -69,7 +69,8 @@ go install github.com/kevincobain2000/go-app-reviews-scraper@latest
 ```sh
 cp .env.local .env
 go-app-reviews-scraper -migrate
-ENV_PATH=./.env go-app-reviews-scraper -store="ios" -app-name="candy-crush" -reviews-url="https://apps.apple.com/us/app/candy-crush-saga/id553834731?see-all=reviews"
+ENV_PATH=./.env go-app-reviews-scraper -app-name="candy-crush" -reviews-url="https://apps.apple.com/us/app/candy-crush-saga/id553834731?see-all=reviews"
+ENV_PATH=./.env go-app-reviews-scraper -app-name="candy-crush" -reviews-url="https://play.google.com/store/apps/details?id=com.king.candycrushsaga&hl=en&gl=US"
 ```
 
 --
@@ -79,11 +80,13 @@ ENV_PATH=./.env go-app-reviews-scraper -store="ios" -app-name="candy-crush" -rev
 ```sh
 go-app-reviews-scraper -h
   -app-name string
-    	Description: Give a unique app name. Example: candy-crush
+    	Desc: Give a unique app name. Example: candy-crush
   -migrate
-    	Description: Run DB migration
+    	Desc: Run DB migration
   -reviews-url string
-    	Description: Link to all reviews page. Example: https://apps.apple.com/us/app/candy-crush-saga/id553834731?see-all=reviews
+
+    	Desc: Apple's link to reviews page. Example: https://apps.apple.com/us/app/candy-crush-saga/id553834731?see-all=reviews
+    	Desc: Google's link reviews page. Example: https://play.google.com/store/apps/details?id=com.king.candycrushsaga&hl=en&gl=US
 ```
 
 ### CHANGE LOG
