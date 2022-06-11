@@ -83,7 +83,7 @@ func TestFindLastReviewCount(t *testing.T) {
 	assert.Equal(t, 0, reviewCount.Rating4Percentage)
 	assert.Equal(t, 0, reviewCount.Rating5Percentage)
 
-	_, err = r.insertReviewCount(reviews)
+	_, err = r.InsertReviewCount(reviews)
 	assert.Nil(t, err)
 
 	reviewCount, err = r.FindLastReviewCount(reviews)

@@ -14,6 +14,15 @@ import (
 	"github.com/headzoo/surf/jar"
 )
 
+// SurfAppStore for dui
+type SurfAppStore struct {
+}
+
+// NewSurfAppStore returns a new SurfAppStore instance
+func NewSurfAppStore() *SurfAppStore {
+	return &SurfAppStore{}
+}
+
 // getBrowser returns a new browser instance
 // with a custom User-Agent
 // and a cookie jar
@@ -103,22 +112,15 @@ const (
 	ratingReviewBodyClass = ".we-customer-review__body"
 )
 
-type SurfAppStore struct {
-}
-
-func NewSurfAppStore() *SurfAppStore {
-	return &SurfAppStore{}
-}
-
 // Surf reviews for a given app
 // and returns a Reviews struct
-func (s *SurfAppStore) Surf(url string) (Reviews, error) {
+func (s *SurfAppStore) Surf(urlStr string) (Reviews, error) {
 	reviews := Reviews{}
 	bow := s.getBrowser()
 
 	var err error
 
-	err = bow.Open(url)
+	err = bow.Open(urlStr)
 	if err != nil {
 		return reviews, fmt.Errorf("[error] unable to open the URL")
 	}
@@ -156,24 +158,12 @@ func (s *SurfAppStore) Surf(url string) (Reviews, error) {
 
 	// Finally verify the fetched reviews count is equal to the total reviews count
 	// This is to verify that all classes were found and fetched in order
-	err = s.verifyReviews(&reviews, bow)
+	err = VerifyReviews(&reviews)
 	if err != nil {
 		return reviews, err
 	}
 
 	return reviews, nil
-}
-
-// verifyReviews checks if the reviews surfed for all items equally
-func (s *SurfAppStore) verifyReviews(reviews *Reviews, bow *browser.Browser) error {
-	// check if all data was fetched successfully
-	if len(reviews.Usernames) != len(reviews.Body) ||
-		len(reviews.Usernames) != len(reviews.Titles) ||
-		len(reviews.Usernames) != len(reviews.Datetimes) ||
-		len(reviews.Usernames) != len(reviews.Ratings) {
-		return fmt.Errorf("[error] fetched counts do not match up. All counts must be equal")
-	}
-	return nil
 }
 
 // setRatingTotal sets the total number of reviews

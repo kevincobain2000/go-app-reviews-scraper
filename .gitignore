@@ -21,3 +21,9 @@ sqlite.db
 main
 
 build/
+
+debug/
+
+*.log
+
+coverage.txt
