@@ -48,7 +48,7 @@ func (r *ReviewsRepository) FindOrNewReviews(reviews Reviews) ([]ReviewModel, er
 				reviews.Store,
 				reviews.Usernames[i],
 				reviews.Titles[i],
-				reviews.Body[i],
+				reviews.Bodies[i],
 				reviews.Ratings[i],
 				reviews.Datetimes[i],
 			)

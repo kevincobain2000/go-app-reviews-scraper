@@ -46,7 +46,7 @@ func (s *SurfGoogleStore) Surf(urlStr string) (Reviews, error) {
 		reviews.Titles = append(reviews.Titles, "Google Play store") // there is no title in Google, so settings it as default
 		reviews.Usernames = append(reviews.Usernames, review.Reviewer)
 		reviews.Datetimes = append(reviews.Datetimes, review.Timestamp)
-		reviews.Body = append(reviews.Body, review.Text)
+		reviews.Bodies = append(reviews.Bodies, review.Text)
 		reviews.Ratings = append(reviews.Ratings, review.Score)
 
 		reviews.Total++

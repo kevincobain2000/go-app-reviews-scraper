@@ -8,7 +8,6 @@ require (
 	github.com/araddon/dateparse v0.0.0-20210429162001-6b43995a97de
 	github.com/headzoo/surf v1.0.1
 	github.com/joho/godotenv v1.4.0
-	github.com/k0kubun/pp v3.0.1+incompatible
 	github.com/kevincobain2000/go-msteams v0.0.0-20220607074626-79eff9de389e
 	github.com/n0madic/google-play-scraper v0.0.0-20220607161459-8b86b7d3198d
 	github.com/stretchr/testify v1.7.2
@@ -25,14 +24,11 @@ require (
 	github.com/jinzhu/inflection v1.0.0 // indirect
 	github.com/jinzhu/now v1.1.5 // indirect
 	github.com/k3a/html2text v1.0.8 // indirect
-	github.com/mattn/go-colorable v0.1.12 // indirect
-	github.com/mattn/go-isatty v0.0.14 // indirect
 	github.com/mattn/go-sqlite3 v1.14.12 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/tidwall/gjson v1.14.1 // indirect
 	github.com/tidwall/match v1.1.1 // indirect
 	github.com/tidwall/pretty v1.2.0 // indirect
 	golang.org/x/net v0.0.0-20210916014120-12bc252f5db8 // indirect
-	golang.org/x/sys v0.0.0-20210927094055-39ccf1dd6fa6 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )

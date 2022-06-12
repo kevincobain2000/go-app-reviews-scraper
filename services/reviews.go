@@ -23,8 +23,8 @@ type Reviews struct {
 	Titles []string
 	// Datetimes is an array of datetimes for all the written reviews on the page
 	Datetimes []time.Time
-	// Body is an array of bodies for all the written reviews on the page
-	Body []string
+	// Bodies is an array of bodies for all the written reviews on the page
+	Bodies []string
 
 	// Total is the total number of reviews
 	// In case of apple it is displayed as 2.5 M reviews or 200 reviews
@@ -59,7 +59,7 @@ func VerifyReviews(reviews *Reviews) error {
 		}
 	}
 	// check if all data was fetched successfully
-	if len(reviews.Usernames) != len(reviews.Body) ||
+	if len(reviews.Usernames) != len(reviews.Bodies) ||
 		len(reviews.Usernames) != len(reviews.Titles) ||
 		len(reviews.Usernames) != len(reviews.Datetimes) ||
 		len(reviews.Usernames) != len(reviews.Ratings) {

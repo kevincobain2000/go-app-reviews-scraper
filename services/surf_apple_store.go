@@ -257,7 +257,7 @@ func (s *SurfAppStore) setReviewTitle(reviews *Reviews, bow *browser.Browser) er
 // This is the body from the css class where body of review for a review is shown
 func (s *SurfAppStore) setReviewBody(reviews *Reviews, bow *browser.Browser) error {
 	bow.Dom().Find(ratingReviewBodyClass).Each(func(_ int, s *goquery.Selection) {
-		reviews.Body = append(reviews.Body, strings.TrimSpace(s.Text()))
+		reviews.Bodies = append(reviews.Bodies, strings.TrimSpace(s.Text()))
 	})
 	return nil
 }

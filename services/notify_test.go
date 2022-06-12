@@ -23,7 +23,7 @@ func TestNotify(t *testing.T) {
 		Titles: []string{
 			"test",
 		},
-		Body: []string{
+		Bodies: []string{
 			"test",
 		},
 		Ratings: []int{

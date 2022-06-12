@@ -23,7 +23,7 @@ func TestVerifyReviews(t *testing.T) {
 			"test",
 			"test2",
 		},
-		Body: []string{
+		Bodies: []string{
 			"test",
 			"test2",
 		},
@@ -53,7 +53,7 @@ func TestVerifyReviewsError(t *testing.T) {
 		Titles: []string{
 			"test",
 		},
-		Body: []string{
+		Bodies: []string{
 			"test",
 			"test2",
 		},
