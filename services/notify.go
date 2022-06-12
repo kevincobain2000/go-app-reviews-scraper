@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"strings"
+	"time"
 
 	md "github.com/JohannesKaufmann/html-to-markdown"
 	"github.com/kevincobain2000/go-app-reviews-scraper/app"
@@ -22,7 +23,13 @@ func NewNotify() *Notify {
 // also stdout the message to console in markdown of the message (html)
 // when the env for MS Teams hook or EMAIL addresses are not sent the notifications are not sent
 func (n *Notify) NotifyNewReviews(reviews []ReviewModel) error {
+	now := time.Now()
 	for _, review := range reviews {
+
+		if review.RatedAt.Format("02-Jan-2006") != now.Format("02-Jan-2006") {
+			log.Println("[info] not today's review, skipping notification")
+			continue
+		}
 		// send message to MS Teams
 		title := "You have a new review!"
 		subtitle := "Store (" + review.Store + ")"
