@@ -1,4 +1,4 @@
-[![codecov](https://codecov.io/gh/kevincobain2000/go-app-reviews-scraper/branch/master/graph/badge.svg)](https://codecov.io/gh/kevincobain2000/go-app-reviews-scraper)
+
 
 
 <p align="center">
