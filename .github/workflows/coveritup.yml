@@ -35,7 +35,7 @@ jobs:
       - name: Build
         run: |
           BUILD_START=$SECONDS
-          go build -ldflags '-s -w' -o main cmd/gobrew/main.go
+          go build -ldflags '-s -w' -o main main.go
           echo SCORE=$(($SECONDS-BUILD_START)) >> "$GITHUB_ENV"
 
       - uses: kevincobain2000/action-coveritup@v1

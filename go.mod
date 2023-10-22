@@ -1,6 +1,6 @@
 module github.com/kevincobain2000/go-app-reviews-scraper
 
-go 1.18
+go 1.21
 
 require (
 	github.com/JohannesKaufmann/html-to-markdown v1.3.4
