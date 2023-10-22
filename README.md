@@ -1,6 +1,3 @@
-
-
-
 <p align="center">
   <a href="https://github.com/kevincobain2000/go-app-reviews-scraper">
     <img alt="go-app-reviews-scraper" src="logo.png" width="360">
@@ -15,8 +12,15 @@
   Apple app store reviews command line API for iOS and Google Play apps.
   <br>
   Written in Go :heart:
-
 </p>
+
+
+[![coveritup](https://coveritup.app/embed/kevincobain2000/go-app-reviews-scraper?branch=master&type=coverage)](https://coveritup.app/kevincobain2000/go-app-reviews-scraper)
+[![coveritup](https://coveritup.app/embed/kevincobain2000/go-app-reviews-scraper?branch=master&type=go-binary-size)](https://coveritup.app/kevincobain2000/go-app-reviews-scraper)
+[![coveritup](https://coveritup.app/embed/kevincobain2000/go-app-reviews-scraper?branch=master&type=go-mod-dependencies)](https://coveritup.app/kevincobain2000/go-app-reviews-scraper)
+[![coveritup](https://coveritup.app/embed/kevincobain2000/go-app-reviews-scraper?branch=master&type=go-sec-issues)](https://coveritup.app/kevincobain2000/go-app-reviews-scraper)
+[![coveritup](https://coveritup.app/embed/kevincobain2000/go-app-reviews-scraper?branch=master&type=build-time)](https://coveritup.app/kevincobain2000/go-app-reviews-scraper)
+[![coveritup](https://coveritup.app/embed/kevincobain2000/go-app-reviews-scraper?branch=master&type=unit-test-run-time)](https://coveritup.app/kevincobain2000/go-app-reviews-scraper)
 
 **Supports:** Apple App store and Google Play Store
 
