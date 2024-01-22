@@ -15,12 +15,13 @@
 </p>
 
 
-[![coveritup](https://coveritup.app/embed/kevincobain2000/go-app-reviews-scraper?branch=master&type=coverage)](https://coveritup.app/kevincobain2000/go-app-reviews-scraper)
-[![coveritup](https://coveritup.app/embed/kevincobain2000/go-app-reviews-scraper?branch=master&type=go-binary-size)](https://coveritup.app/kevincobain2000/go-app-reviews-scraper)
-[![coveritup](https://coveritup.app/embed/kevincobain2000/go-app-reviews-scraper?branch=master&type=go-mod-dependencies)](https://coveritup.app/kevincobain2000/go-app-reviews-scraper)
-[![coveritup](https://coveritup.app/embed/kevincobain2000/go-app-reviews-scraper?branch=master&type=go-sec-issues)](https://coveritup.app/kevincobain2000/go-app-reviews-scraper)
-[![coveritup](https://coveritup.app/embed/kevincobain2000/go-app-reviews-scraper?branch=master&type=build-time)](https://coveritup.app/kevincobain2000/go-app-reviews-scraper)
-[![coveritup](https://coveritup.app/embed/kevincobain2000/go-app-reviews-scraper?branch=master&type=unit-test-run-time)](https://coveritup.app/kevincobain2000/go-app-reviews-scraper)
+![unit-test-run-time](https://coveritup.app/badge?org=kevincobain2000&repo=go-app-reviews-scraper&type=unit-test-run-time&branch=master)
+![build-time](https://coveritup.app/badge?org=kevincobain2000&repo=go-app-reviews-scraper&type=build-time&branch=master)
+![coverage](https://coveritup.app/badge?org=kevincobain2000&repo=go-app-reviews-scraper&type=coverage&branch=master)
+![go-binary-size](https://coveritup.app/badge?org=kevincobain2000&repo=go-app-reviews-scraper&type=go-binary-size&branch=master)
+![go-mod-dependencies](https://coveritup.app/badge?org=kevincobain2000&repo=go-app-reviews-scraper&type=go-mod-dependencies&branch=master)
+![go-sec-issues](https://coveritup.app/badge?org=kevincobain2000&repo=go-app-reviews-scraper&type=go-sec-issues&branch=master)
+
 
 **Supports:** Apple App store and Google Play Store
 
