@@ -22,6 +22,15 @@
 ![go-mod-dependencies](https://coveritup.app/badge?org=kevincobain2000&repo=go-app-reviews-scraper&type=go-mod-dependencies&branch=master)
 ![go-sec-issues](https://coveritup.app/badge?org=kevincobain2000&repo=go-app-reviews-scraper&type=go-sec-issues&branch=master)
 
+---
+
+![unit-test-run-time](https://coveritup.app/chart?org=kevincobain2000&repo=go-app-reviews-scraper&type=unit-test-run-time&branch=master)
+![build-time](https://coveritup.app/chart?org=kevincobain2000&repo=go-app-reviews-scraper&type=build-time&branch=master)
+![coverage](https://coveritup.app/chart?org=kevincobain2000&repo=go-app-reviews-scraper&type=coverage&branch=master)
+![go-binary-size](https://coveritup.app/chart?org=kevincobain2000&repo=go-app-reviews-scraper&type=go-binary-size&branch=master)
+![go-mod-dependencies](https://coveritup.app/chart?org=kevincobain2000&repo=go-app-reviews-scraper&type=go-mod-dependencies&branch=master)
+![go-sec-issues](https://coveritup.app/chart?org=kevincobain2000&repo=go-app-reviews-scraper&type=go-sec-issues&branch=master)
+
 
 **Supports:** Apple App store and Google Play Store
 
